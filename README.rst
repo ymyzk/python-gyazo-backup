@@ -1,5 +1,8 @@
 python-gyazo-backup
 ===================
+.. image:: https://badge.fury.io/py/python-gyazo-backup.svg
+   :target: https://badge.fury.io/py/python-gyazo-backup
+   :alt: PyPI Version
 .. image:: https://travis-ci.org/ymyzk/python-gyazo-backup.svg?branch=master
    :target: https://travis-ci.org/ymyzk/python-gyazo-backup
    :alt: Build Status
