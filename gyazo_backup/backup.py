@@ -100,7 +100,7 @@ def download_images(images, dest_dir, num_threads=1):
 
 
 def export_html(images, dest_dir):
-    root_dir = path.abspath(path.dirname(gyazo.__file__))
+    root_dir = path.abspath(path.dirname(__file__))
     theme_dir = path.join(root_dir, 'themes/default/')
     template_env = Environment(
         loader=FileSystemLoader(theme_dir, encoding='utf-8'))
