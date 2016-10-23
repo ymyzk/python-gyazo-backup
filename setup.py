@@ -1,9 +1,16 @@
 #!/usr/bin/env python
+from codecs import open
+from os import path
+
 from setuptools import setup
 
-
 __author__ = 'Yusuke Miyazaki <miyazaki.dev@gmail.com>'
-__version__ = '0.1.0'
+__version__ = '0.2.0'
+
+here = path.abspath(path.dirname(__file__))
+
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 install_requires = [
     'Jinja2>=2.8',
@@ -43,6 +50,7 @@ entry_points = {
 setup(name='python-gyazo-backup',
       version=__version__,
       description='A command-tool for creating backup of Gyazo',
+      long_description=long_description,
       author='Yusuke Miyazaki',
       author_email='miyazaki.dev@gmail.com',
       url='https://github.com/ymyzk/python-gyazo-backup',
