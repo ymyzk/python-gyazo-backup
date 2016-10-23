@@ -6,7 +6,9 @@ __author__ = 'Yusuke Miyazaki <miyazaki.dev@gmail.com>'
 __version__ = '0.1.0'
 
 install_requires = [
-    'python-gyazo>=0.11.0,<0.12.0'
+    'Jinja2>=2.8',
+    'progress>=1.2',
+    'python-gyazo>=0.12.0,<0.13.0',
 ]
 
 extras_require = {
