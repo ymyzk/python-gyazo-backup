@@ -21,7 +21,10 @@ install_requires = [
 extras_require = {
     ':python_version=="2.7"': [
         'futures>=3.0.5'
-    ]
+    ],
+    'test': [
+        'flake8>=3.3.0,<4.0.0',
+    ],
 }
 
 classifiers = [
