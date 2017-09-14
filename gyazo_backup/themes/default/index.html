@@ -2,31 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Python-Gyazo Backup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-  <div class="container">
-    <h1>Python-Gyazo Backup</h1>
-    <div class="js-masonry masonry" data-masonry-options='{"columnWidth": 200, "itemSelector": ".image", "gutter": 20, "isFitWidth": true}'>
+    <h1 class="text-center mt-4 mb-4">Python-Gyazo Backup</h1>
+    <div class="card-group images">
       {% for image in images %}
-      <div class="image">
-        {% if image.permalink_url %}<a href="{{ image.permalink_url }}">{% else %}<a>{% endif %}
-          <img src="thumbnails/{{ image.thumb_filename }}" alt="">
-          <div class="image-info">
-            {{ image.local_created_at.strftime("%Y-%m-%d %H:%M") }}
-          </div>
+      <div class="card mb-2">
+        <a href="{% if image.permalink_url %}{{ image.permalink_url }}{% else %}thumbnails/{{ image.thumb_filename }}{% endif %}" class="card-link">
+          <img class="card-img-top" src="thumbnails/{{ image.thumb_filename }}">
         </a>
+        <div class="card-body">
+          <p class="card-text">
+            <small class="text-muted">{{ image.local_created_at.strftime("%Y-%m-%d %H:%M") }}</small>
+          </p>
+        </div>
       </div>
       {% endfor %}
     </div>
     <hr>
-    <footer>
-      Built with python-gyazo on {{ now.strftime("%Y-%m-%d %H:%M:%S") }}.
+    <footer class="text-center">
+      Built with python-gyazo-backup on {{ now.strftime("%Y-%m-%d %H:%M:%S") }}.
     </footer>
-  </div>
-  <script src="masonry.pkgd.min.js"></script>
   </body>
 </html>
