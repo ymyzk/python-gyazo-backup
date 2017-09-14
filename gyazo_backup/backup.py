@@ -112,5 +112,3 @@ def export_html(images, dest_dir):
 
     shutil.copy(path.join(theme_dir, 'index.css'),
                 path.join(dest_dir, 'index.css'))
-    shutil.copy(path.join(theme_dir, 'masonry.pkgd.min.js'),
-                path.join(dest_dir + 'masonry.pkgd.min.js'))
