@@ -15,7 +15,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 install_requires = [
     'Jinja2>=2.8',
     'progress>=1.2',
-    'python-gyazo>=0.12.0,<0.13.0',
+    'python-gyazo>=0.14.0,<0.15.0',
 ]
 
 extras_require = {
@@ -39,6 +39,7 @@ classifiers = [
     'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: Implementation :: PyPy',
     'Topic :: Internet',
     'Topic :: Utilities'
