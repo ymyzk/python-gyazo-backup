@@ -19,7 +19,7 @@ install_requires = [
 ]
 
 extras_require = {
-    ':python_version < "2.7"': [
+    ':python_version < "3.0"': [
         'futures>=3.0.5'
     ],
     'test': [
