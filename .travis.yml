@@ -1,8 +1,13 @@
 language: python
 python:
+  - 2.7
+  - 3.3
+  - 3.4
   - 3.5
+  - pypy
+  - pypy3
 sudo: false
 install:
-  - pip install 'tox>=2.0,<3.0'
+  - pip install 'tox-travis>=0.8,<1.0'
 script:
   - tox
