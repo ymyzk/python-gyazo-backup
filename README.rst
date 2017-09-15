@@ -15,7 +15,7 @@ A command-tool for creating backup of Gyazo
 Requirements
 ------------
 * Python 2.7+
-* Python 3.3+
+* Python 3.4+
 * PyPy
 * PyPy3
 
