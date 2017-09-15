@@ -7,9 +7,9 @@ import json
 from os import makedirs, path
 import shutil
 
+import gyazo
 from jinja2 import Environment, FileSystemLoader
 from progress.bar import Bar
-import gyazo
 
 
 def backup(args):
@@ -22,13 +22,32 @@ def backup(args):
         return 1
 
     api = gyazo.Api(access_token=args.access_token)
-    images = download_image_list(api)
-    images |= load_old_image_list(dest_dir)
+    new_images = download_image_list(api)
+    old_images = load_old_image_list(dest_dir)
+    images = merge_image_lists(new_images, old_images)
     download_images(images, dest_dir, num_threads=args.num_threads)
     save_image_list(images, dest_dir)
     export_html(images, dest_dir)
 
     return 0
+
+
+def merge_image_lists(images_1, images_2):
+    index = {}
+    for image in images_1:
+        index[image.thumb_url] = image
+
+    for image in images_2:
+        if image.thumb_url in index:
+            index[image.thumb_url] |= image
+        else:
+            index[image.thumb_url] = image
+
+    images = index.values()
+    return gyazo.image.ImageList(images=sorted(images,
+                                               key=lambda i: i.created_at,
+                                               reverse=True),
+                                 total_count=len(images))
 
 
 def create_dest_dir(directory):
