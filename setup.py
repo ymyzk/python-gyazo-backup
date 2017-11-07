@@ -15,7 +15,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 install_requires = [
     'Jinja2>=2.8',
     'progress>=1.2',
-    'python-gyazo>=0.14.0,<0.15.0',
+    'python-gyazo>=1.0.0,<2.0.0',
 ]
 
 extras_require = {
