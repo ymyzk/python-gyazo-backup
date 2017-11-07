@@ -11,16 +11,14 @@
     <h1 class="text-center mt-4 mb-4">Python-Gyazo Backup</h1>
     <div class="card-group images">
       {% for image in images %}
-      <div class="card mb-2">
-        <a href="{% if image.permalink_url %}{{ image.permalink_url }}{% else %}thumbnails/{{ image.thumb_filename }}{% endif %}" class="card-link">
-          <img class="card-img-top" src="thumbnails/{{ image.thumb_filename }}">
-        </a>
+      <a href="{% if image.permalink_url %}{{ image.permalink_url }}{% else %}thumbnails/{{ image.thumb_filename }}{% endif %}" class="card">
+        <img class="card-img-top" src="thumbnails/{{ image.thumb_filename }}">
         <div class="card-body">
           <p class="card-text">
             <small class="text-muted">{{ image.local_created_at.strftime("%Y-%m-%d %H:%M") }}</small>
           </p>
         </div>
-      </div>
+      </a>
       {% endfor %}
     </div>
     <hr>
