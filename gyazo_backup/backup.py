@@ -6,6 +6,7 @@ from datetime import datetime
 import json
 from os import makedirs, path
 import shutil
+import threading
 
 import gyazo
 from jinja2 import Environment, FileSystemLoader
@@ -95,6 +96,13 @@ def save_image_list(images, dest_dir):
 
 
 def download_images(images, dest_dir, num_threads=1):
+    bar = Bar('Images', max=len(images))
+    bar_lock = threading.Lock()
+
+    def bar_next(_):
+        with bar_lock:
+            bar.next()
+
     def download_image_and_thumbnail(img):
         if img.thumb_filename is not None:
             thumb_file = dest_dir + 'thumbnails/' + img.thumb_filename
@@ -107,11 +115,10 @@ def download_images(images, dest_dir, num_threads=1):
                 with open(image_file, 'wb') as f:
                         f.write(img.download())
 
-    bar = Bar('Images', max=len(images))
     executor = ThreadPoolExecutor(max_workers=num_threads)
     for image in images:
         future = executor.submit(download_image_and_thumbnail, image)
-        future.add_done_callback(lambda _: bar.next())
+        future.add_done_callback(bar_next)
 
     # Wait until done
     executor.shutdown(wait=True)
