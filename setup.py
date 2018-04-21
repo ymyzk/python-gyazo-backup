@@ -5,7 +5,7 @@ from os import path
 from setuptools import setup
 
 __author__ = 'Yusuke Miyazaki <miyazaki.dev@gmail.com>'
-__version__ = '0.3.0'
+__version__ = '0.4.0'
 
 here = path.abspath(path.dirname(__file__))
 
