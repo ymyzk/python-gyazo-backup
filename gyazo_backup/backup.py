@@ -36,13 +36,13 @@ def backup(args):
 def merge_image_lists(images_1, images_2):
     index = {}
     for image in images_1:
-        index[image.thumb_url] = image
+        index[image.created_at] = image
 
     for image in images_2:
-        if image.thumb_url in index:
-            index[image.thumb_url] |= image
+        if image.created_at in index:
+            index[image.created_at] |= image
         else:
-            index[image.thumb_url] = image
+            index[image.created_at] = image
 
     images = index.values()
     return gyazo.image.ImageList(images=sorted(images,
