@@ -113,7 +113,7 @@ def download_images(images, dest_dir, num_threads=1):
             image_file = dest_dir + 'images/' + img.filename
             if not path.exists(image_file):
                 with open(image_file, 'wb') as f:
-                        f.write(img.download())
+                    f.write(img.download())
 
     executor = ThreadPoolExecutor(max_workers=num_threads)
     for image in images:
