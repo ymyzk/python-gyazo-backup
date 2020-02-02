@@ -68,7 +68,7 @@ def download_image_list(api):
         images += _images
         bar.max = _images.num_pages
         bar.next()
-        if not _images.has_next_page():
+        if not _images.has_next_page:
             break
         i += 1
     bar.finish()
