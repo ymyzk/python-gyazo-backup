@@ -1,11 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-from __future__ import absolute_import
 import argparse
 import sys
 
-from .backup import backup
+from gyazo_backup.backup import backup
 
 
 def main():
